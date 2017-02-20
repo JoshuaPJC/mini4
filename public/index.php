@@ -33,5 +33,8 @@ require APP . 'config/config.php';
 // load application class
 use Mini\Core\Application;
 
+// load routes
+$routes = include(APP . 'config/routes.php');
+
 // start the application
-$app = new Application();
+$app = new Application($routes);
