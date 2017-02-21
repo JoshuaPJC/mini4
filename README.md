@@ -1,15 +1,14 @@
-![MINI3 - A naked barebone PHP application](_install/mini3.png)
+# MINI4
 
-# MINI3
-
-MINI3 is an extremely simple and easy to understand skeleton PHP application, reduced to the max.
-MINI3 is NOT a professional framework and it does not come with all the stuff real frameworks have.
+MINI4 is an extremely simple and easy to understand skeleton PHP application, reduced to the max.
+MINI4 is NOT a professional framework and it does not come with all the stuff real frameworks have.
 If you just want to show some pages, do a few database calls and a little-bit of AJAX here and there, without
-reading in massive documentations of highly complex professional frameworks, then MINI3 might be very useful for you.
-MINI3 is easy to install, runs nearly everywhere and doesn't make things more complicated than necessary.
+reading in massive documentations of highly complex professional frameworks, then MINI4 might be very useful for you.
+MINI4 is easy to install, runs nearly everywhere and doesn't make things more complicated than necessary.
 
 [MINI](https://github.com/panique/mini) (original version) and [MINI2](https://github.com/panique/mini2) (used Slim router) were built by me (panique), MINI3 is an excellent and improved version
 of the original MINI, made by [JaoNoctus](https://github.com/JaoNoctus). Big thanks, man! :)
+Finally MINI4 is an improved version of MINI3, adding Twig support and simple routing system, mabe by [VFRZ](https://github.com/vfrz)
 
 ## Features
 
@@ -23,6 +22,7 @@ of the original MINI, made by [JaoNoctus](https://github.com/JaoNoctus). Big tha
 - commented code
 - uses only native PHP code, so people don't have to learn a framework
 - uses PSR-4 autoloader
+- simple routing system
 
 ## Requirements
 
@@ -33,13 +33,13 @@ of the original MINI, made by [JaoNoctus](https://github.com/JaoNoctus). Big tha
 
 ## Installation (in Vagrant, 100% automatic)
 
-If you are using Vagrant for your development, then you can install MINI3 with one click (or one command on the
-command line) [[Vagrant doc](https://docs.vagrantup.com/v2/getting-started/provisioning.html)]. MINI3 comes with a demo
+If you are using Vagrant for your development, then you can install MINI4 with one click (or one command on the
+command line) [[Vagrant doc](https://docs.vagrantup.com/v2/getting-started/provisioning.html)]. MINI4 comes with a demo
 Vagrant-file (defines your Vagrant box) and a demo bootstrap.sh which automatically installs Apache, PHP, MySQL,
 PHPMyAdmin, git and Composer, sets a chosen password in MySQL and PHPMyadmin and even inside the application code,
 downloads the Composer-dependencies, activates mod_rewrite and edits the Apache settings, downloads the code from GitHub
 and runs the demo SQL statements (for demo data). This is 100% automatic, you'll end up after +/- 5 minutes with a fully
-running installation of MINI3 inside an Ubuntu 14.04 LTS Vagrant box.
+running installation of MINI4 inside an Ubuntu 14.04 LTS Vagrant box.
 
 To do so, put `Vagrantfile` and `bootstrap.sh` from `_vagrant` inside a folder (and nothing else).
 Do `vagrant box add ubuntu/trusty64` to add Ubuntu 14.04 LTS ("Trusty Thar") 64bit to Vagrant (unless you already have
@@ -50,7 +50,7 @@ are set to `12345678`, the project is installed in `/var/www/html/myproject`. Yo
 
 ## Auto-Installation on Ubuntu 14.04 LTS (in 30 seconds)
 
-You can install MINI3 including Apache, MySQL, PHP and PHPMyAdmin, mod_rewrite, Composer, all necessary settings and
+You can install MINI4 including Apache, MySQL, PHP and PHPMyAdmin, mod_rewrite, Composer, all necessary settings and
 even the passwords inside the configs file by simply downloading one file and executing it, the entire installation
 will run 100% automatically. If you are stuck somehow, also have a look into this tutorial for the original MINI1,
 it's basically the same installation process:
@@ -143,7 +143,7 @@ the autoloading will not work anymore. If you change something in the composer.j
 
 ## Goodies
 
-MINI3 comes with a little customized [PDO debugger tool](https://github.com/panique/pdo-debug) (find the code in
+MINI4 comes with a little customized [PDO debugger tool](https://github.com/panique/pdo-debug) (find the code in
 application/libs/helper.php), trying to emulate your PDO-SQL statements. It's extremely easy to use:
 
 ```php
@@ -266,6 +266,10 @@ Please commit into the develop branch (which holds the in-development version), 
 (which holds the tested and stable version).
 
 ## Changelog
+
+**February 2017**
+
+- [vfrz] starting mini4 development
 
 **August 2016**
 
