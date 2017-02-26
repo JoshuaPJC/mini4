@@ -1,3 +1,5 @@
+![MINI4 - A naked barebone PHP application](_install/mini4.png)
+
 # MINI4
 
 MINI4 is an extremely simple and easy to understand skeleton PHP application, reduced to the max.
@@ -8,7 +10,7 @@ MINI4 is easy to install, runs nearly everywhere and doesn't make things more co
 
 [MINI](https://github.com/panique/mini) (original version) and [MINI2](https://github.com/panique/mini2) (used Slim router) were built by me (panique), MINI3 is an excellent and improved version
 of the original MINI, made by [JaoNoctus](https://github.com/JaoNoctus). Big thanks, man! :)
-Finally MINI4 is an improved version of MINI3, adding Twig support and simple routing system, mabe by [VFRZ](https://github.com/vfrz)
+Finally MINI4 is an improved version of MINI3, adding Twig support and routing system, mabe by [VFRZ](https://github.com/vfrz)
 
 ## Features
 
@@ -22,7 +24,8 @@ Finally MINI4 is an improved version of MINI3, adding Twig support and simple ro
 - commented code
 - uses only native PHP code, so people don't have to learn a framework
 - uses PSR-4 autoloader
-- simple routing system
+- twig support
+- php routing system
 
 ## Requirements
 

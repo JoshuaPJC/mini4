@@ -11,7 +11,9 @@
 
 namespace Mini\Controller;
 
-class ErrorController
+use Mini\Core\Controller;
+
+class ErrorController extends Controller
 {
     /**
      * PAGE: index
@@ -19,9 +21,8 @@ class ErrorController
      */
     public function index()
     {
-        // load views
-        require APP . 'view/_templates/header.php';
-        require APP . 'view/error/index.php';
-        require APP . 'view/_templates/footer.php';
+        $this->display('error/index.html.twig', array(
+            'URL' => URL
+        ));
     }
 }

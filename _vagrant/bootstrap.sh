@@ -55,7 +55,7 @@ sudo rm "/var/www/html/index.html"
 sudo apt-get -y install git
 
 # git clone MINI
-sudo git clone https://github.com/panique/mini3 "/var/www/html/${PROJECTFOLDER}"
+sudo git clone https://github.com/vfrz/mini4 "/var/www/html/${PROJECTFOLDER}"
 
 # install Composer
 curl -s https://getcomposer.org/installer | php
@@ -65,7 +65,7 @@ mv composer.phar /usr/local/bin/composer
 cd "/var/www/html/${PROJECTFOLDER}"
 composer install
 
-# run SQL statements from MINI3 folder
+# run SQL statements from MINI4 folder
 sudo mysql -h "localhost" -u "root" "-p${PASSWORD}" < "/var/www/html/${PROJECTFOLDER}/_install/01-create-database.sql"
 sudo mysql -h "localhost" -u "root" "-p${PASSWORD}" < "/var/www/html/${PROJECTFOLDER}/_install/02-create-table-song.sql"
 sudo mysql -h "localhost" -u "root" "-p${PASSWORD}" < "/var/www/html/${PROJECTFOLDER}/_install/03-insert-demo-data-into-table-song.sql"

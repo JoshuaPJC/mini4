@@ -2,6 +2,11 @@
 /** For more info about namespaces plase @see http://php.net/manual/en/language.namespaces.importing.php */
 namespace Mini\Core;
 
+
+use Phroute\Phroute\Exception\HttpRouteNotFoundException;
+use Phroute\Phroute\RouteCollector;
+use Phroute\Phroute\Dispatcher;
+
 class Application
 {
 
@@ -12,70 +17,32 @@ class Application
      */
     public function __construct($routes)
     {
+        $url = isset($_GET['url']) ? '/' . $_GET['url'] : '/';
 
-        if (!isset($_GET['url'])) {
-            $_GET['url'] = '';
+        $collector = new RouteCollector();
+
+        foreach ($routes['GET'] as $route => $controller_method) {
+            $controller = ucfirst(explode("#", $controller_method)[0]) . "Controller";
+            $method = explode("#", $controller_method)[1];
+            $collector->get($route, ["Mini\\Controller\\" . $controller, $method]);
         }
-        $url = trim($_GET['url'], '/');
-        $url = filter_var($url, FILTER_SANITIZE_URL);
-        $url_array = explode('/', $url);
 
+        foreach ($routes['POST'] as $route => $controller_method) {
+            $controller = ucfirst(explode("#", $controller_method)[0]) . "Controller";
+            $method = explode("#", $controller_method)[1];
+            $collector->post($route, ["Mini\\Controller\\" . $controller, $method]);
+        }
 
-        $key = $this->matchRoute($url_array, $routes);
+        $dispatcher = new Dispatcher($collector->getData());
 
-        if (isset($key))
-            echo $routes[$key];
-        else
-            echo "null";
+        try {
+            $dispatcher->dispatch($_SERVER['REQUEST_METHOD'], $url);
+        } catch (HttpRouteNotFoundException $ex) {
+            $dispatcher->dispatch('GET', '/error');
+        }
 
 
     }
 
-
-    private function matchRoute($url_array, $routes)
-    {
-
-        foreach ($routes as $key => $route) {
-            $match = true;
-
-            $route_array = explode('/', filter_var(trim($key, '/')));
-
-            if (count($route_array) != count($url_array)) {
-                $match = false;
-            }
-
-            for ($i = 0; $i < count($route_array); $i++) {
-                if (!isset($route_array[$i]) || !isset($url_array[$i])) {
-                    $match = false;
-                    break;
-                }
-                $route_array_elem = $route_array[$i];
-                //Check if route elem is param
-                if (strlen($route_array_elem) > 0) {
-                    if ($route_array_elem{0} == ':') {
-                        if (empty($url_array[$i])) {
-                            $match = false;
-                            break;
-                        }
-                    } else {
-                        if ($route_array_elem != $url_array[$i]) {
-                            $match = false;
-                            break;
-                        }
-                    }
-                } else {
-                    if (strlen($url_array[$i]) > 0) {
-                        $match = false;
-                        break;
-                    }
-                }
-            }
-
-            if ($match)
-                return $key;
-        }
-
-        return null;
-    }
 
 }

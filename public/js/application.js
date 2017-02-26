@@ -20,7 +20,9 @@ $(function() {
         $('#javascript-ajax-button').on('click', function(){
 
             // send an ajax-request to this URL: current-server.com/songs/ajaxGetStats
-            // "url" is defined in views/_templates/footer.php
+            // "url" is defined in views/_templates/footer.html.twig
+            console.log(url + "/songs/ajaxGetStats");
+
             $.ajax(url + "/songs/ajaxGetStats")
                 .done(function(result) {
                     // this will be executed if the ajax-call was successful

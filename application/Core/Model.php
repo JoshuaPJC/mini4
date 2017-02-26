@@ -3,6 +3,7 @@
 namespace Mini\Core;
 
 use PDO;
+use PDOException;
 
 class Model
 {

@@ -11,18 +11,19 @@
 
 namespace Mini\Controller;
 
-class HomeController
+use Mini\Core\Controller;
+
+class HomeController extends Controller
 {
     /**
      * PAGE: index
-     * This method handles what happens when you move to http://yourproject/home/index (which is the default page btw)
+     * This method handles what happens when you move to http://yourproject/ (which is the default page btw)
      */
     public function index()
     {
-        // load views
-        require APP . 'view/_templates/header.php';
-        require APP . 'view/home/index.php';
-        require APP . 'view/_templates/footer.php';
+        $this->display('home/index.html.twig', array(
+            'URL' => URL
+        ));
     }
 
     /**
@@ -32,10 +33,9 @@ class HomeController
      */
     public function exampleOne()
     {
-        // load views
-        require APP . 'view/_templates/header.php';
-        require APP . 'view/home/example_one.php';
-        require APP . 'view/_templates/footer.php';
+        $this->display('home/example_one.html.twig', array(
+            'URL' => URL
+        ));
     }
 
     /**
@@ -45,9 +45,8 @@ class HomeController
      */
     public function exampleTwo()
     {
-        // load views
-        require APP . 'view/_templates/header.php';
-        require APP . 'view/home/example_two.php';
-        require APP . 'view/_templates/footer.php';
+        $this->display('home/example_two.html.twig', array(
+            'URL' => URL
+        ));
     }
 }
