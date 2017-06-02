@@ -4,6 +4,7 @@ Options -MultiViews
 
 # Activates URL rewriting (like myproject.com/controller/action/1/2/3)
 RewriteEngine On
+RewriteBase /
 
 # Prevent people from looking directly into folders
 Options -Indexes
