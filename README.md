@@ -10,7 +10,7 @@ MINI4 is easy to install, runs nearly everywhere and doesn't make things more co
 
 [MINI](https://github.com/panique/mini) (original version) and [MINI2](https://github.com/panique/mini2) (used Slim router) were built by me (panique), MINI3 is an excellent and improved version
 of the original MINI, made by [JaoNoctus](https://github.com/JaoNoctus). Big thanks, man! :)
-Finally MINI4 is an improved version of MINI3, adding Twig support and routing system, mabe by [VFRZ](https://github.com/vfrz)
+Finally MINI4 is an improved version of MINI3, adding Twig support and routing system, made by [VFRZ](https://github.com/vfrz)
 
 ## Features
 
